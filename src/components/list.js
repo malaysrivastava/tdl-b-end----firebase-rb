@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import AddList from "./listadd.js";
 import fireDb from "../firebase";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 const List = () => {
   
 	var [currentId, setCurrentId] = useState('');
     var [reminder, setreminder] = useState({})
+
+    const notify = () => toast("Event Removed!!");
+
 
     //Once components load complete
     useEffect(() => {
@@ -42,7 +47,9 @@ const List = () => {
 
     const onDelete = id => {
         if (window.confirm('Are you sure to delete this record?')) {
+            notify();
             fireDb.child(`list/${id}`).remove(
+                
                 err => {
                     if (err)
                         console.log(err)
@@ -62,7 +69,7 @@ const List = () => {
             </div>
             <div className="row">
                 <div className="col-md-5">
-                    <h3 className="m-1 text-center">Set Your Reminder</h3>
+                    <h4 className="m-2 text-center">Set Your Reminder</h4>
                     <AddList {...({ currentId, reminder, addOrEdit })} />
                 </div>
                 <div className="col-md-7">

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 const ListAdd = (props) => {
     const initialFieldValues = {
@@ -8,6 +10,15 @@ const ListAdd = (props) => {
      }
 
     var [values, setValues] = useState(initialFieldValues)
+    const notify = () => {
+        if (values.eventname!=="") {
+            toast("Reminder added") 
+            return 1;   
+        }
+        else
+        toast("Fill entries properly")
+        return 0;
+        };
 
 
     useEffect(() => {
@@ -15,9 +26,9 @@ const ListAdd = (props) => {
             setValues({ ...initialFieldValues })
         else
             setValues({
-                ...props.contactObjects[props.currentId]
+                ...props.reminder[props.currentId]
             })
-    }, [props.currentId, props.contactObjects])
+    }, [props.currentId, props.reminder])
 
     const handleInputChange = e => {
         var { name, value } = e.target;
@@ -29,6 +40,7 @@ const ListAdd = (props) => {
 
     const handleFormSubmit = e => {
         e.preventDefault()
+        if(notify())
         props.addOrEdit(values);
     }
 
@@ -73,7 +85,8 @@ const ListAdd = (props) => {
            
             <div className="form-group">
                 <input type="submit" value={props.currentId === "" ? "Save" : "Update"} className="btn btn-primary btn-block" />
-            </div>
+                  <ToastContainer/>
+                </div>
         </form>
     );
 }
