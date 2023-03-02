@@ -1,15 +1,15 @@
 import * as firebase from "firebase";
 
-var firebaseConfig = {
-    apiKey: "AIzaSyDPxltlQ_sUVG0AX0rS4y-wn3N2qe_toKU",
-    authDomain: "to-do-list-9a00c.firebaseapp.com",
-    databaseURL: "https://to-do-list-9a00c-default-rtdb.firebaseio.com/",
-    projectId: "to-do-list-9a00c",
-    storageBucket: "to-do-list-9a00c.appspot.com",
-    messagingSenderId: "54566242986",
-    appId: "1:54566242986:web:47f9baa699aa039ec79ed3",
-    measurementId: "G-49CZRJEBFN"
-};
+const firebaseConfig = {
+    apiKey: "AIzaSyCJreb8HcjEdivWmjbXfo-6S7rx4v7t1pU",
+    authDomain: "reminderapp-c1345.firebaseapp.com",
+    databaseURL: "https://reminderapp-c1345-default-rtdb.firebaseio.com",
+    projectId: "reminderapp-c1345",
+    storageBucket: "reminderapp-c1345.appspot.com",
+    messagingSenderId: "339445526968",
+    appId: "1:339445526968:web:fc0afb63e51f83ca821f4d",
+    measurementId: "G-LRB9LEV9HV"
+  };
 
 
 // apiKey: "AIzaSyBNQCqy-_Oki68QKf2wHofXTuBPseb53Lg",
